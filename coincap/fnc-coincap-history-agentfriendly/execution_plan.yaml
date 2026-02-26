@@ -1,0 +1,8 @@
+projetId: charming-module-358319
+datasetId: Coincap
+tableInsert: agent_friendly
+tableRead: assets
+secretId: secret-coincap
+version: latest
+offset: 0
+days: 1
