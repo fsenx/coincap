@@ -19,14 +19,40 @@ Trecho para comentar os arquivos desenvolvidos
 ### main.py
 Função principal responsável por instanciar variáveis e parâmetros que realizam a extração dos dados da API para inserir do Bigquery.
 
-### coincap.py
+## coincap.py
 
+init: Inicializa a classe configurando os parâmetros de identificação do projeto, o nome do segredo e a versão específica a ser acessada no Google Cloud.
 
-### Configuração
+_baseUrl: Define o endereço raiz da API CoinCap v3 para todas as chamadas.
+
+__getHeaders: Configura os cabeçalhos de autenticação utilizando o token Bearer.
+
+__getData: Gerencia a execução das requisições, aplicando regras de repetição automática (retry) em caso de falhas e controlando o tempo limite (timeout).
+
+getStartTime: Calcula o momento exato de início para a busca de dados, convertendo dias retroativos em milissegundos.
+
+getEndTime: Captura o horário atual no formato de milissegundos para encerrar a janela de consulta.
+
+getAssets: Coleta a lista de criptoativos disponíveis, gerenciando a paginação para consolidar múltiplos registros em uma única estrutura.
+
+getAssetHistory: Recupera o histórico de preços e variações de um ativo específico através de seu identificador principal.
+
+getAgentHistory: Realiza a extração de dados históricos utilizando o endpoint otimizado para slugs, retornando informações de performance temporal.
+
+## bigquery.py
+bqInsertData: Realiza o carregamento de dados de um DataFrame Pandas diretamente para uma tabela específica no BigQuery.
+bqReadData: Realiza a leitura de ids distintos de criptos de uma tabela específica no BigQuery.
+
+## secrets.py
+init: Inicializa a classe configurando os parâmetros de identificação do projeto, o nome do segredo e a versão específica a ser acessada no Google Cloud.
+
+getSecret: Estabelece conexão com o serviço Secret Manager para recuperar informações sensíveis de forma segura.
+
+## Configuração
 Para executar localmente foi utilizado o gcloud CLI para se conectar ao ambiente GCP localmente.
 Após a conexão foi executado o comando abaixo para criar as variaveis de ambiente local.
 
-$env:projectId="seu projeto"                   
+$env:projectId="seu projeto"
 $env:datasetId="seu dataset"
 $env:tableId="sua tabela"
 $env:secret=" sua secret"
