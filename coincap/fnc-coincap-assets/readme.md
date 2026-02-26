@@ -6,9 +6,13 @@ Esse código tem como intuito a extração de dados da API do Coinmap para consu
 Ele foi estruturado seguindo o princípio de Orientação a Objeto e a Metodologia SOLID.
 
 Single Responsibility Principle - Princípio da Responsabilidade Única:
+
 Open-Closed Principle - Princípio Aberto-Fechado
+
 Liskov Substitution Principle - Princípio da Substituição de Liskov
+
 Interface Segregation Principle - Princípio da Segregação da Interface
+
 Dependency Inversion Principle - Princípio da Inversão da Dependência
 
 Com isso as classes criadas como um quebra-cabeça que se auto encaixa, retirando a dependência de repetição de código e segregando seu propósito para simplificar o debug do código, assim quando um erro ocorrer, o desenvolvedor(a) identifica facilmente o trecho com problema para correção.
@@ -19,7 +23,7 @@ Trecho para comentar os arquivos desenvolvidos
 ### main.py
 Função principal responsável por instanciar variáveis e parâmetros que realizam a extração dos dados da API para inserir do Bigquery.
 
-## coincap.py
+### coincap.py
 
 init: Inicializa a classe configurando os parâmetros de identificação do projeto, o nome do segredo e a versão específica a ser acessada no Google Cloud.
 
@@ -39,11 +43,13 @@ getAssetHistory: Recupera o histórico de preços e variações de um ativo espe
 
 getAgentHistory: Realiza a extração de dados históricos utilizando o endpoint otimizado para slugs, retornando informações de performance temporal.
 
-## bigquery.py
+### bigquery.py
+
 bqInsertData: Realiza o carregamento de dados de um DataFrame Pandas diretamente para uma tabela específica no BigQuery.
+
 bqReadData: Realiza a leitura de ids distintos de criptos de uma tabela específica no BigQuery.
 
-## secrets.py
+### secrets.py
 init: Inicializa a classe configurando os parâmetros de identificação do projeto, o nome do segredo e a versão específica a ser acessada no Google Cloud.
 
 getSecret: Estabelece conexão com o serviço Secret Manager para recuperar informações sensíveis de forma segura.
