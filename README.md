@@ -78,4 +78,4 @@ $env:version="latest"
 
 $env:offset="0"
 
-Em seguida foi executado a unção main.py para realizar a carga dos dados.
+Em seguida foi execute a função main.py para realizar a carga dos dados.
