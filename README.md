@@ -59,23 +59,20 @@ Função principal responsável por instanciar variáveis e parâmetros que real
 Para executar localmente foi utilizado o gcloud CLI para se conectar ao ambiente GCP localmente.
 
 Instale as bibliotecas com o comando pip install -r requirements.txt
-pandas
-requests
-google-cloud-bigquery
-google-cloud-secret-manager
-pandas-gbq
+
+pandas  
+requests  
+google-cloud-bigquery  
+google-cloud-secret-manager  
+pandas-gbq  
 
 Após a conexão foi executado o comando abaixo para criar as variaveis de ambiente local.
 $env:projectId="seu projeto"
 
-$env:datasetId="seu dataset"
-
-$env:tableId="sua tabela"
-
-$env:secret=" sua secret"
-
-$env:version="latest"
-
-$env:offset="0"
+$env:datasetId="seu dataset"  
+$env:tableId="sua tabela"  
+$env:secret=" sua secret"  
+$env:version="latest"  
+$env:offset="0"  
 
 Em seguida foi execute a função main.py para realizar a carga dos dados.
